@@ -225,7 +225,7 @@
     }{
       % two addresses
       \leavevmode\hbox to \textwidth{\@tablebox{\@addressone}\hfil
-				     \@tablebox{\@addresstwo}}\par
+             \@tablebox{\@addresstwo}}\par
     }%
   }%
 \endgroup}
@@ -247,8 +247,8 @@
   }{%
     \leavevmode\hbox to \textwidth
       {\hfill\vbox{\hbox{\@addressone}
-		   \hbox{\@addresstwo}
-		  }%
+       \hbox{\@addresstwo}
+      }%
       }\par
   }
 \endgroup}
@@ -284,11 +284,11 @@
 \sectionskip=3.5ex plus 1ex minus -.2ex % values stolen from LaTeX
 
 \def\newsectionwidth#1{%
-		     \sectionwidth=#1
-		     \textwidth=\resumewidth
-		     \advance\textwidth-\sectionwidth
-		     \hsize=\textwidth
-		     \hoffset=\sectionwidth
+         \sectionwidth=#1
+         \textwidth=\resumewidth
+         \advance\textwidth-\sectionwidth
+         \hsize=\textwidth
+         \hoffset=\sectionwidth
 }
 
 
@@ -330,8 +330,8 @@
     \@stopfield    % the is the first part of a \kill
    \else
      \@@par	     % This will end the previous paragraph if needed and
-		   % go into vertical mode.  If this was already in
-		   % vertical mode then the \par does nothing.
+       % go into vertical mode.  If this was already in
+       % vertical mode then the \par does nothing.
 
   \fi
   \begingroup
@@ -339,8 +339,8 @@
   \def\par{\@@par}%
   \let\\=\@normalcr
   \addpenalty{\@secpenalty} % this would be a good place for a page break
-			    % \@secpenalty is what LaTeX uses before its
-			    % section's.  It happens to be -300
+          % \@secpenalty is what LaTeX uses before its
+          % section's.  It happens to be -300
   \addvspace{\sectionskip}  % put in a bit of glue
   % The following hbox will be contributed to the page list without going
   % into horizontal mode.  Therefore, any \parindent's, \parshape's, \leftskip
@@ -348,42 +348,42 @@
   % only by \hoffset. This is what I want
   \hbox to 0pt{%
     \hss	 % this is an llap.  In other words, this glue
-		 % will shrink by the width of the stuff in the vbox
-		 % (\sectionwidth) into the left margin and then
-		 % insert the contents of the vbox.
+     % will shrink by the width of the stuff in the vbox
+     % (\sectionwidth) into the left margin and then
+     % insert the contents of the vbox.
     \vtop to 0pt{% make a 0pt height paragraph, with the baseline at the
-		 % lined up with the baseline of the first box in the list
+     % lined up with the baseline of the first box in the list
       \leftskip=0pt
       \hsize=\sectionwidth
       \textwidth=\sectionwidth
       \raggedright     % you don't want this filled out to the right margin
       \sectionfont
       #1\vss	       % Go into horizontal mode; do the paragraph;
-		       % go into vertical mode; add some negative glue 
-		       % to give a box of 0pt height and depth
+           % go into vertical mode; add some negative glue 
+           % to give a box of 0pt height and depth
     }%
   }%
   \addpenalty{-\@secpenalty} % this would be a bad place for a page break
   \vskip-\baselineskip % when the next box is processed, baselineskip glue
-		       % glue will be added (the box has no depth because of
-		       % the \vss; therefore, we don't have to worry about
-		       % \lineskiplimit).  This -\baselineskip glue
-		       % is to undo this.  \nointerlineskip doesn't
-		       % work because the baseline of this line would be lined
-		       % up with the top of the top of the next box.  We
-		       % want the baselines lined up.
-		       %
-		       % It may have been possible to do this by forcing the
-		       % baseline of this box to be the top of the box but
-		       % then the interline skip between this box and the
-		       % previous box would be off as the baselines of the
-		       % this box (the one that being made above) and the
-		       % previous line would be separated by \baselineskip
-		       % (probably, it may be separted by the depth of the
-		       % previous box + \lineskip) but as the baseline of
-		       % this box has been moved to the top, the box's would
-		       % separted by to much glue.  The exact amount being
-		       % the height of this box.
+           % glue will be added (the box has no depth because of
+           % the \vss; therefore, we don't have to worry about
+           % \lineskiplimit).  This -\baselineskip glue
+           % is to undo this.  \nointerlineskip doesn't
+           % work because the baseline of this line would be lined
+           % up with the top of the top of the next box.  We
+           % want the baselines lined up.
+           %
+           % It may have been possible to do this by forcing the
+           % baseline of this box to be the top of the box but
+           % then the interline skip between this box and the
+           % previous box would be off as the baselines of the
+           % this box (the one that being made above) and the
+           % previous line would be separated by \baselineskip
+           % (probably, it may be separted by the depth of the
+           % previous box + \lineskip) but as the baseline of
+           % this box has been moved to the top, the box's would
+           % separted by to much glue.  The exact amount being
+           % the height of this box.
   \endgroup
   \ifx\\\@tabcr   % is this in a tabular? (this *should* work but is a cludge)
     % this is the second part of the \kill; it starts the next tabbing line
@@ -394,13 +394,13 @@
     \ignorespaces
   \else
     \vskip-\parskip    % The next thing to be contributed will be a paragraph.
-		       % Right before being contributed though a \vskip\parskip
-		       % will be inserted.  This is to negate it.
-		       %
-		       % I do consider this to be a bit of a cludge but
-		       % I can not find a way to write \unskipfutureskip
-		       % or a way to make TeX think that nothing has
-		       % been contributed to the page list.
+           % Right before being contributed though a \vskip\parskip
+           % will be inserted.  This is to negate it.
+           %
+           % I do consider this to be a bit of a cludge but
+           % I can not find a way to write \unskipfutureskip
+           % or a way to make TeX think that nothing has
+           % been contributed to the page list.
   \fi
 }
 
@@ -507,7 +507,7 @@
   \leftskip=-\hoffset	     % I use leftskip to move things to the left as 
   \advance\textwidth\hoffset % changing hoffset doesn't work. But this
   \hsize=\textwidth	     % doesn't really work as hboxes are rules
-			     % are unaffeted
+           % are unaffeted
   \let\par=\@@par
   \parindent=0pt
   \parskip=0pt
@@ -519,7 +519,7 @@
 % all of the resume goes in the resume environment
 %
 \newenvironment{resume}{\begingroup
-		       \@ifundefined{@opening}{\opening}{}
+           \@ifundefined{@opening}{\opening}{}
 }{\endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -537,7 +537,7 @@
   % \@columnwidth = \textwidth / #1
   \@columnwidth=\textwidth \divide\@columnwidth by #1
   \begin{tabular*}{\textwidth}[t]%
-	{*{#1}{@{}p{\@columnwidth}@{\extracolsep{\fill}}}}
+  {*{#1}{@{}p{\@columnwidth}@{\extracolsep{\fill}}}}
 }
 
 \def\endncolumn{\end{tabular*}}
@@ -623,22 +623,22 @@
   \c@numberofcolumns 0
   \let\\=\end@line@head
   \def\employer##1{\advance\c@numberofcolumns 1
-		   \@format{employer}{##1}
-		   \append@tabular@text{employer}}
+       \@format{employer}{##1}
+       \append@tabular@text{employer}}
   \def\location##1{\advance\c@numberofcolumns 1
-		   \@format{location}{##1}
-		   \append@tabular@text{location}}
+       \@format{location}{##1}
+       \append@tabular@text{location}}
   \def\dates##1{\advance\c@numberofcolumns 1
-		\@format{dates}{##1}
-		\append@tabular@text{dates}}
+    \@format{dates}{##1}
+    \append@tabular@text{dates}}
   \def\title##1{\advance\c@numberofcolumns 1
-		 \@format{title}{##1}
-		\append@tabular@text{title}}
+     \@format{title}{##1}
+    \append@tabular@text{title}}
   \def\body{\iftoks\tabular@head\undefined@token\then
-	    \else
-	      \@append{\noexpand\\}\to\tabular@head
-	    \skotfi
-	    \let\\=\end@line@tail}}{}
+      \else
+        \@append{\noexpand\\}\to\tabular@head
+      \skotfi
+      \let\\=\end@line@tail}}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %taken from page 378 of TeXbook but freely hacked
@@ -661,9 +661,9 @@
 
 \let \then = \empty
 \def \iftoks #1#2\then #3\else #4\skotfi{
-		\edef \1{\the #1}
-		\edef \2{\the #2}
-		\ifx \1\2\then #3\else #4\fi}
+    \edef \1{\the #1}
+    \edef \2{\the #2}
+    \ifx \1\2\then #3\else #4\fi}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -817,7 +817,7 @@
 \textwidth=154mm
 \itemsep=0cm
 \parsep=0cm
-\topmargin -12mm
+\topmargin -5mm
 %\textheight 265mm
 \textheight 275mm
 
